@@ -17,23 +17,19 @@ def find_mismatch(text):
 
         if next in ")]}":
             if len(opening_brackets_stack)==0 or not are_matching(opening_brackets_stack[-1].char,next):
-                print(i+1)
-                return 0
+                return i + 1
             opening_brackets_stack.pop()
         
     if len(opening_brackets_stack) == 0:
-        # print("Success")
         return "Success"
     else:
-        # print(opening_brackets_stack[-1].position + 1)
         return opening_brackets_stack[-1].position + 1
 
 def main():
     text = input()
+    # text = ""
     mismatch = find_mismatch(text)
     print(mismatch)
-    # find_mismatch(text)
 
 if __name__ == "__main__":
     main()
-# main()
